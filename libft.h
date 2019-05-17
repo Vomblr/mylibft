@@ -6,14 +6,14 @@
 /*   By: mcomet <mcomet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 16:06:02 by mcomet            #+#    #+#             */
-/*   Updated: 2019/04/18 16:50:57 by mcomet           ###   ########.fr       */
+/*   Updated: 2019/05/16 20:46:22 by mcomet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# define LONG_MAX 9223372036854775807
-# define INT_MIN -2147483648
+# define L_MAX 9223372036854775807
+# define I_MIN -2147483648
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -92,5 +92,7 @@ int					ft_isupper(int c);
 void				ft_swap(int *a, int *b);
 char				*ft_strrev(char *str);
 size_t				ft_wrdcnt(char const *s, char delimiter);
+char				*ft_strndup(const char *s1, size_t n);
+char				*ft_strjoinfree(char *s1, char *s2, size_t s);
 
 #endif

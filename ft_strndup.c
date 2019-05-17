@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcomet <mcomet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/12 15:40:31 by mcomet            #+#    #+#             */
-/*   Updated: 2019/04/16 16:47:14 by mcomet           ###   ########.fr       */
+/*   Created: 2019/04/25 20:56:11 by mcomet            #+#    #+#             */
+/*   Updated: 2019/05/16 19:19:15 by mcomet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+char	*ft_strndup(const char *s1, size_t n)
 {
-	t_list	*link;
+	char	*copy;
 
-	if (!(link = (t_list*)ft_memalloc(sizeof(t_list))))
+	if (!(copy = (char*)malloc(sizeof(char) * (n + 1))))
 		return (NULL);
-	if (content == NULL)
-	{
-		link->content = NULL;
-		link->content_size = 0;
-	}
-	else
-	{
-		if (!(link->content = ft_memalloc(content_size)))
-		{
-			free(link);
-			return (NULL);
-		}
-		ft_memcpy(link->content, content, content_size);
-		link->content_size = content_size;
-	}
-	link->next = NULL;
-	return (link);
+	ft_strncpy(copy, s1, n);
+	copy[n] = '\0';
+	return (copy);
 }
